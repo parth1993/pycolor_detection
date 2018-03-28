@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 import pycolor
-import preprocessing
+import preProcess
 from os.path import abspath, dirname, exists, join
 import os
 import sys
@@ -14,39 +14,22 @@ import base64
 
 class ColorDetect:
     """"""
-    def __init__(self, **kwargs):
+    def __init__(self):
         
-        self._mapping_file = self._read_excel("hex_to_color_category.xlsx")
-
-    def _read_excel(self, filename):
-
-        return pd.read_excel(
-            self._get_file_abs_path(
-                filename
-                )
-            )
-
-    def _get_file_abs_path(self, filename):
-
-        return join(dirname(abspath(__file__)), filename)
+        # self.img = cv2.imread(**kwargs)
+        pass
     
-    def predict(self, input_file):
+    def predict(self):
 
-        # img = base64.b64decode(input_base64)
-        # img_array = np.fromstring(img, np.uint8)
-        # input_file = cv2.imdecode(img_array, 1)
+        preprocess = preProcess.PreProcessImage()
+        preprocess.resize()
+        segmented_img = preprocess.segmentation()
+        detect = pycolor.ColorDetect(segmented_img)
+        output = detect.detect_color()
 
-        # ip_converted = preprocessing.resizing(input_base64)
-        segmented_image = preprocessing.image_segmentation(
-                preprocessing.resizing(input_file)
-            )
-        # processed_image = preprocessing.removebg(segmented_image)
-        detect = pycolor.detect_color(
-                segmented_image,
-                self._mapping_file
-            )
-        return (detect)
+        return output
+
 
 
 obj = ColorDetect()
-print (obj.predict(cv2.imread(sys.argv[1])))
+print(obj.predict())

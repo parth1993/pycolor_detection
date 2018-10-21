@@ -33,3 +33,4 @@ class ColorDetect:
 
 obj = ColorDetect()
 print(obj.predict(sys.argv[1]))
+

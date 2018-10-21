@@ -5,9 +5,9 @@ from skimage import morphology, filters
 
 class PreProcessImage:
 
-    def __init__(self):
+    def __init__(self, image_path):
 
-        self.image = cv2.imread("/home/sheron/Desktop/download (2).jpeg")
+        self.image = cv2.imread(image_path)
 
 
     def resize(self):

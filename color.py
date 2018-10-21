@@ -19,9 +19,9 @@ class ColorDetect:
         # self.img = cv2.imread(**kwargs)
         pass
     
-    def predict(self):
+    def predict(self, image_path):
 
-        preprocess = preProcess.PreProcessImage()
+        preprocess = preProcess.PreProcessImage(image_path)
         preprocess.resize()
         segmented_img = preprocess.segmentation()
         detect = pycolor.ColorDetect(segmented_img)
@@ -32,4 +32,4 @@ class ColorDetect:
 
 
 obj = ColorDetect()
-print(obj.predict())
+print(obj.predict(sys.argv[1]))

@@ -19,7 +19,7 @@ class ColorDetect:
         # self.img = cv2.imread(**kwargs)
         pass
     
-    def predict(self):
+    def predict(self, image_path):
 
         preprocess = preProcess.PreProcessImage()
         preprocess.resize()
@@ -32,4 +32,4 @@ class ColorDetect:
 
 
 obj = ColorDetect()
-print(obj.predict())
+print(obj.predict(sys.argv[2]))

@@ -1,18 +1,15 @@
-# pycolor_detection v0.1.0
+# pycolor_detection v0.2.0
 Detect most dominant color from images with monotonous backgrounds using Image processing and clustering techniques.
 
 ## Documentation:
 
 ### Prerequisites
 
-Refer `requirements.txt` and for OpenCV python refer:
-[OpenCV python](http://www.pyimagesearch.com/2016/10/24/ubuntu-16-04-how-to-install-opencv/)
-
 
 ### Usage:
 
 ```
-python color.py "Image path"
+
 ```
 ###
 
@@ -32,9 +29,6 @@ result => [{'prediction': {'Base': u'red', 'Shade': u'sangria'}, 'probability': 
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
 
-## Acknowledgments
-
-* https://github.com/WillBrennan
 
 
 

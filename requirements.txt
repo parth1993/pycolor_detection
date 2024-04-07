@@ -5,4 +5,5 @@ opencv-python-headless
 Pillow
 scipy
 pytest
+pytest-mock
 scikit-learn

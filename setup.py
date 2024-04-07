@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 setup(
-    name="color_finder_package",
+    name="color_finder",
     version="0.2.0",
     packages=find_packages(),
     install_requires=[
@@ -18,16 +18,16 @@ setup(
     python_requires='>=3.6',
     entry_points={
         "console_scripts": [
-            "color_finder=color_finder.color_finder:main",  # Example CLI entry point
+            "color_finder=color_finder.color_finder:main", 
         ],
     },
-    author="Your Name",
-    author_email="your.email@example.com",
+    author="Parth Sharma",
+    author_email="reachout.parthsharma@gmail.com",
     description="A package for finding dominant colors in images and removing backgrounds.",
     keywords="image processing color detection background removal",
-    url="http://example.com/your_package_homepage",
+    # url="http://example.com/your_package_homepage",
     project_urls={
-        "Source Code": "https://github.com/parth1993/color_finder_package",
+        "Source Code": "https://github.com/parth1993/pycolor_detection",
     },
     classifiers=[
         "Programming Language :: Python :: 3",

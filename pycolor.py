@@ -10,7 +10,7 @@ import matplotlib.pyplot as plt
 
 random.seed(0)
 
-'__author__' == "sharmaparth17@gmail.com"
+'__author__' == "reachout.parthsharma@gmail.com"
 
 class ColorDetect:
 

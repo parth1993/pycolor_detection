@@ -1,4 +1,4 @@
-from setuptools import setup, find_packages
+from setuptools import find_packages, setup
 
 setup(
     name="color_finder",
@@ -15,10 +15,10 @@ setup(
         "pytest",
         "pytest-mock",
     ],
-    python_requires='>=3.6',
+    python_requires=">=3.6",
     entry_points={
         "console_scripts": [
-            "color_finder=color_finder.color_finder:main", 
+            "color_finder=color_finder.color_finder:main",
         ],
     },
     author="Parth Sharma",

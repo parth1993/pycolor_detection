@@ -1,11 +1,15 @@
-import numpy as np
-from scipy.spatial import KDTree
-from background_remover import ImageProcessor  # Import from your background removal script
 import cv2
+import numpy as np
+from background_remover import (
+    ImageProcessor,
+)  # Import from your background removal script
+from scipy.spatial import KDTree
 from sklearn.cluster import KMeans
+
 
 class ColorDictionary:
     """Encapsulates a color dictionary and provides KDTree-based lookup."""
+
     def __init__(self, color_dict):
         self.color_dict = color_dict
         self.kd_tree = self._build_kd_tree()
@@ -18,8 +22,10 @@ class ColorDictionary:
         _, index = self.kd_tree.query(rgb_value)
         return list(self.color_dict.keys())[index]
 
+
 class ColorFinder:
     """Integrates color finding with image processing and background removal."""
+
     def __init__(self, image_path, color_dict, removal_strategy):
         self.image_path = image_path
         self.color_dict = ColorDictionary(color_dict)
@@ -43,23 +49,26 @@ class ColorFinder:
         """Finds the most dominant color in the image using k-means clustering."""
         # Reshape the image to be a list of pixels
         pixels = image.reshape((-1, 3))
-        
+
         # Remove black (background) pixels
         pixels = pixels[(pixels != [0, 0, 0]).all(axis=1)]
 
         # Use k-means clustering on the pixels to find the most dominant color
-        if len(pixels) > 0:  # Ensure there are pixels left after removing the background
+        if (
+            len(pixels) > 0
+        ):  # Ensure there are pixels left after removing the background
             cluster_count = 1
             clt = KMeans(n_clusters=cluster_count)
             clt.fit(pixels)
-            
+
             # The cluster center with the highest count is the most dominant color
             dominant_color = clt.cluster_centers_[0].astype("uint8").tolist()
             return tuple(dominant_color)
         else:
             # Return a default color if no foreground pixels are found
             return (255, 255, 255)  # Example: white
-        
+
+
 # Example usage
 if __name__ == "__main__":
     # Assume 'color_dict' is defined somewhere above or imported
@@ -70,6 +79,7 @@ if __name__ == "__main__":
     }
     # Assume you have a way to create an instance of a removal strategy, for example:
     from background_remover import SimpleRemovalStrategy
+
     strategy = SimpleRemovalStrategy(threshold=240)
 
     finder = ColorFinder("path_to_your_image.jpg", color_dict, strategy)

@@ -69,5 +69,3 @@ Please ensure your code adheres to the project's coding standards and include te
 
 ## License
 This project is licensed under the MIT License - see the [**LICENSE**](https://github.com/parth1993/pycolor_detection/blob/main/LICENSE) file for details.
-
-

@@ -7,3 +7,4 @@ scipy
 pytest
 pytest-mock
 scikit-learn
+pre-commit

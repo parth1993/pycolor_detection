@@ -1,8 +1,8 @@
 import cv2
 import numpy as np
-from background_remover import (
+from background_remover import (  # Import from your background removal script
     ImageProcessor,
-)  # Import from your background removal script
+)
 from scipy.spatial import KDTree
 from sklearn.cluster import KMeans
 

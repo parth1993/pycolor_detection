@@ -1,8 +1,8 @@
 import numpy as np
 import pytest
-from background_removal import (
+from background_removal import (  # Adjust import paths as necessary
     ImageProcessor,
-)  # Adjust import paths as necessary
+)
 
 from color_finder import (  # Adjust import paths as necessary
     ColorDictionary,
